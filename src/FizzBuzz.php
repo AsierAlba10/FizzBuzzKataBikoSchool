@@ -13,7 +13,7 @@ class FizzBuzz
 
     public function calculate(string $number): string
     {
-        if($this->divisibleByTheFizzBuzzNumbers($number)) {
+        if($this->isFizzBuzz($number)) {
             return self::FIZZ_BUZZ;
         }
 
@@ -28,9 +28,9 @@ class FizzBuzz
         return $number;
     }
 
-    public function divisibleByTheFizzBuzzNumbers(string $numberToAnalyze): bool
+    public function isFizzBuzz(string $numberToAnalyze): bool
     {
-        return $numberToAnalyze % self::FIZZ_NUMBER == 0 && $numberToAnalyze % self::BUZZ_NUMBER == 0;
+        return $this->numberIsDivisibleByFizzNumber($numberToAnalyze) && $this->numberIsDivisibleByBuzzNumber($numberToAnalyze);
     }
 
     public function isFizz(string $numberToAnalyze): bool

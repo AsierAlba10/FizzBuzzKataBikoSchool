@@ -77,5 +77,4 @@ class FizzBuzzTest extends TestCase
 
         $this->assertEquals("Buzz", $response);
     }
-
 }
