@@ -14,11 +14,11 @@ class FizzBuzz
             return self::FIZZ_BUZZ;
         }
 
-        if($this->divisibleByThree($number) || str_contains($number, "3")) {
+        if($this->divisibleByThree($number) || $this->containsAThreeNumber($number)) {
             return self::FIZZ;
         }
 
-        if($this->divisibleByFive($number) || str_contains($number, "5")) {
+        if($this->divisibleByFive($number) || $this->containsAFiveNumber($number)) {
             return self::BUZZ;
         }
 
@@ -38,5 +38,15 @@ class FizzBuzz
     private function divisibleByFive(string $numberToAnalyze): bool
     {
         return $numberToAnalyze % 5 == 0;
+    }
+
+    private function containsAThreeNumber(string $numberToAnalyze): bool
+    {
+        return str_contains($numberToAnalyze, "3");
+    }
+
+    private function containsAFiveNumber(string $numberToAnalyze): bool
+    {
+        return str_contains($numberToAnalyze, "3");
     }
 }
