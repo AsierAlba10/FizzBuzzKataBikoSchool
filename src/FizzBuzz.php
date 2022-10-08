@@ -7,37 +7,59 @@ class FizzBuzz
     const FIZZ_BUZZ = "FizzBuzz";
     const FIZZ = "Fizz";
     const BUZZ = "Buzz";
+    const FIZZ_NUMBER = "3";
+    const BUZZ_NUMBER = "5";
 
 
     public function calculate(string $number): string
     {
-        if($this->divisibleByThreeAndByFive($number)) {
+        if($this->divisibleByTheFizzBuzzNumbers($number)) {
             return self::FIZZ_BUZZ;
         }
 
-        if($this->divisibleByThreeOrContainsAThree($number)) {
+        if($this->isFizz($number)) {
             return self::FIZZ;
         }
 
-        if($this->divisibleByFiveOrContainsAFive($number)) {
+        if($this->isBuzz($number)) {
             return self::BUZZ;
         }
 
         return $number;
     }
 
-    private function divisibleByThreeAndByFive(string $numberToAnalyze): bool
+    public function divisibleByTheFizzBuzzNumbers(string $numberToAnalyze): bool
     {
-        return $numberToAnalyze % 3 == 0 && $numberToAnalyze % 5 == 0;
+        return $numberToAnalyze % self::FIZZ_NUMBER == 0 && $numberToAnalyze % self::BUZZ_NUMBER == 0;
     }
 
-    private function divisibleByThreeOrContainsAThree(string $numberToAnalyze): bool
+    public function isFizz(string $numberToAnalyze): bool
     {
-        return $numberToAnalyze % 3 == 0 || str_contains($numberToAnalyze, "3");
+        return $this->numberIsDivisibleByFizzNumber($numberToAnalyze) || $this->numberContainsTheFizzNumber($numberToAnalyze);
     }
 
-    private function divisibleByFiveOrContainsAFive(string $numberToAnalyze): bool
+    public function isBuzz(string $numberToAnalyze): bool
     {
-        return $numberToAnalyze % 5 == 0 || str_contains($numberToAnalyze, "5");
+        return $this->numberIsDivisibleByBuzzNumber($numberToAnalyze) || $this->numberContainsTheBuzzNumber($numberToAnalyze);
+    }
+
+    private function numberIsDivisibleByFizzNumber(string $numberToAnalyze): bool
+    {
+        return $numberToAnalyze % self::FIZZ_NUMBER == 0;
+    }
+
+    private function numberContainsTheFizzNumber(string $numberToAnalyze): bool
+    {
+        return str_contains($numberToAnalyze, self::FIZZ_NUMBER);
+    }
+
+    private function numberIsDivisibleByBuzzNumber(string $numberToAnalyze): bool
+    {
+        return $numberToAnalyze % self::BUZZ_NUMBER == 0;
+    }
+
+    private function numberContainsTheBuzzNumber(string $numberToAnalyze): bool
+    {
+        return str_contains($numberToAnalyze, self::BUZZ_NUMBER);
     }
 }
