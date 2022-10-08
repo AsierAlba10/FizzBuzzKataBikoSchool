@@ -16,11 +16,9 @@ class FizzBuzz
         if($this->isFizzBuzz($number)) {
             return self::FIZZ_BUZZ;
         }
-
         if($this->isFizz($number)) {
             return self::FIZZ;
         }
-
         if($this->isBuzz($number)) {
             return self::BUZZ;
         }
