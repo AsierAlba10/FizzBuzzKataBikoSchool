@@ -14,7 +14,7 @@ class FizzBuzz
             return "Fizz";
         }
 
-        if($number % 5 == 0) {
+        if($number % 5 == 0 || str_contains($number, "5")) {
             return "Buzz";
         }
 

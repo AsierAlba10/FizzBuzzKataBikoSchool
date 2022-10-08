@@ -68,4 +68,14 @@ class FizzBuzzTest extends TestCase
         $this->assertEquals("Fizz", $response);
     }
 
+    /**
+     * @test
+     **/
+    public function givenOneNumberOnHisNameHaveAFiveNumberReturnsBuzz()
+    {
+        $response = $this->fizzBuzz->calculate("52");
+
+        $this->assertEquals("Buzz", $response);
+    }
+
 }
