@@ -8,9 +8,10 @@ class FizzBuzz
     const FIZZ = "Fizz";
     const BUZZ = "Buzz";
 
+
     public function calculate(string $number): string
     {
-        if($this->divisibleByTwoNumbers($number)) {
+        if($this->divisibleByThreeAndByFive($number)) {
             return self::FIZZ_BUZZ;
         }
 
@@ -25,7 +26,7 @@ class FizzBuzz
         return $number;
     }
 
-    private function divisibleByTwoNumbers(string $numberToAnalyze): bool
+    private function divisibleByThreeAndByFive(string $numberToAnalyze): bool
     {
         return $numberToAnalyze % 3 == 0 && $numberToAnalyze % 5 == 0;
     }
