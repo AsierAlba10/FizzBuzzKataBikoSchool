@@ -21,7 +21,7 @@ class FizzBuzzTest extends TestCase
     /**
      * @test
      **/
-    public function givenOneNumberThatNoIsDivisibleByThreeReturnsTheSameNumber()
+    public function givenOneNumberThatNoIsDivisibleByThreeAndByFiveReturnsTheSameNumber()
     {
         $response = $this->fizzBuzz->calculate("1");
 
