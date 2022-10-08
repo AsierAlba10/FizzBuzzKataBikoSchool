@@ -7,14 +7,23 @@ use PHPUnit\Framework\TestCase;
 
 class FizzBuzzTest extends TestCase
 {
+    private FizzBuzz $fizzBuzz;
+    /**
+     * @setUp
+     **/
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->fizzBuzz = new FizzBuzz();
+    }
+
     /**
      * @test
      **/
-    public function given1Returns1()
+    public function givenOneNumberThatNoIsDivisibleByThreeReturnsTheSameNumber()
     {
-        $fizzBuzz = new FizzBuzz();
-
-        $response = $fizzBuzz->calculate("1");
+        $response = $this->fizzBuzz->calculate("1");
 
         $this->assertEquals("1", $response);
     }
@@ -22,23 +31,9 @@ class FizzBuzzTest extends TestCase
     /**
      * @test
      **/
-    public function given2Returns2()
+    public function givenOneNumberDivisibleByThreeReturnsFizz()
     {
-        $fizzBuzz = new FizzBuzz();
-
-        $response = $fizzBuzz->calculate("2");
-
-        $this->assertEquals("2", $response);
-    }
-
-    /**
-     * @test
-     **/
-    public function given3ReturnsFizz()
-    {
-        $fizzBuzz = new FizzBuzz();
-
-        $response = $fizzBuzz->calculate("3");
+        $response = $this->fizzBuzz->calculate("3");
 
         $this->assertEquals("Fizz", $response);
     }
