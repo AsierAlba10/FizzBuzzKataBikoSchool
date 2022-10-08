@@ -38,6 +38,13 @@ class FizzBuzzTest extends TestCase
         $this->assertEquals("Fizz", $response);
     }
 
+    /**
+     * @test
+     **/
+    public function givenOneNumberDivisibleByFiveReturnsBuzz()
+    {
+        $response = $this->fizzBuzz->calculate("5");
 
-
+        $this->assertEquals("Buzz", $response);
+    }
 }
